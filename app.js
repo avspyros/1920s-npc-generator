@@ -33,6 +33,6 @@ document.getElementById('addnpc').addEventListener('click', getNPC);
 // Year update
 
 const currentDate = new Date();
-let currentYear = currentDate.getFullYear();
+const currentYear = currentDate.getFullYear();
 
 document.getElementById('year').innerHTML = `${currentYear}`;

@@ -25,20 +25,25 @@ button {
   margin: 0 auto;
   padding: 0.8rem;
   border-radius: 50%;
+  border: 1px solid #0f0d0d;
   font-family: inherit;
   font-weight: bold;
   font-size: 1.2rem;
   outline: none;
   cursor: pointer;
   color: #0f0d0d;
-  transform: scaleY(1);
-  transition: color .5s ease-in-out, transform .5s ease-in-out;
-  /* transition: transform .5s ease-in-out; */
+  transform: scale(0.95);
+  transition: transform .5s ease-in-out, color .3s ease-in-out, text .3s ease-in-out;
 }
 
 button:hover {
+  transform: scale(1) rotateY(1deg) rotateX(1deg);
+  box-shadow: 0px 0px 6px rgba(160, 160, 160, 0.5);
+}
+
+button:active {
   color: #b10e0e;
-  transform: scale(1.05);
+  text-shadow: 0px 0px 10px rgba(177, 14, 14, 0.3);
 }
 
 header {
