@@ -88,6 +88,22 @@ footer p {
   font-size: 1.2rem;
 }
 
+.inner {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.npc-name p {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.npc-age p,
+.npc-occupation p {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
 .title-container {
   width: 100%;
   padding: 20px 0;
@@ -128,20 +144,4 @@ footer p {
     border: 0;
     border-radius: 0;  
   }
-}
-
-.internal-wrapper {
-  margin-top: 1rem;
-  text-align: center;
-}
-
-.view-name {
-  font-size: 3rem;
-  font-weight: 600;
-}
-
-.view-age,
-.view-occupation {
-  font-size: 2rem;
-  font-weight: 600;
 }
