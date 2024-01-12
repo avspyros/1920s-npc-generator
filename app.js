@@ -1,38 +1,34 @@
-
 const url = 'https://avspyros.github.io/npcdata/names-occupations.json';
+const getNPCButton = document.getElementById('NPC');
+const npcNameElement = document.getElementById('npcname');
+const npcAgeElement = document.getElementById('npcage');
+const npcOccupationElement = document.getElementById('npcoccupation');
 
-async function getNPC() {
+getNPCButton.addEventListener('click', generateNPC);
 
-try {
-  const response = await fetch(url);
-  const npcs = await response.json();
+async function generateNPC() {
+  try {
+    const response = await fetch(url);
+    const npcs = await response.json();
 
-  const npc = npcs.names[Math.floor(Math.random() * npcs.names.length)];
+    const getRandomElement = array => array[Math.floor(Math.random() * array.length)];
 
-  function getAge(min, max) {
-    const age = (Math.floor(Math.random() * (max - min + 1) + min));
-    return age;
-  }
+    const npcName = getRandomElement(npcs.names);
+    const npcOccupation = getRandomElement(npcs.occupations);
 
-  const occupation = npcs.occupations[Math.floor(Math.random() * npcs.occupations.length)];
+    const getRandomAge = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
-  document.getElementById('npcname').innerHTML = npc;
-  document.getElementById('npcage').innerHTML = getAge(17, 75);
-  document.getElementById('npcoccupation').innerHTML = occupation;
-
-  } catch(error) {
-    console.log(error);
-    document.getElementById('npcname').innerHTML = 'Something went terribly wrong!';
+    npcNameElement.innerHTML = npcName;
+    npcAgeElement.innerHTML = getRandomAge(17, 75);
+    npcOccupationElement.innerHTML = npcOccupation;
+  } catch (error) {
+    console.error(error);
+    npcNameElement.innerHTML = 'Something went terribly wrong!';
   }
 }
 
-// Event
-
-document.getElementById('addnpc').addEventListener('click', getNPC);
-
 // Year update
-
+const getYear = document.getElementById('year');
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
-
-document.getElementById('year').innerHTML = `${currentYear}`;
+getYear.innerHTML = `${currentYear}`;
